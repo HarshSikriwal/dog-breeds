@@ -10,12 +10,12 @@ export const revalidate = 0;
 
 const Sidebar = async ({ searchParams }: SearchProps) => {
   const data = await getData();
-  const breedsArray = Object.keys(data.message);
+  const breedsArray = Object.keys(data);
 
   return (
-    <div>
+    <div className="basis-1/5">
       {/* <SearchBar /> */}
-      <div className="flex flex-col text-lg basis-2/12 h-full bg-[#d7d4ca] text-black overflow-auto">
+      <div className="flex flex-col text-lg h-full bg-[#d7d4ca] text-black overflow-auto">
         {breedsArray.map((breed) => (
           <Link
             href={breed}

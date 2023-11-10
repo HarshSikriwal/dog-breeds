@@ -19,7 +19,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-screen h-screen flex`}>
+      <body
+        className={`${inter.className} w-screen h-screen flex bg-[#ddd0c3]`}
+      >
         <Sidebar />
         {children}
       </body>

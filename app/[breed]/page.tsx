@@ -17,16 +17,20 @@ export default async function BreedPage({
   };
 
   return (
-    <div>
-      <Image
-        src={breedImage.message}
-        alt="Dog Image"
-        height={400}
-        width={400}
-      />
-      <form action={handleRandomImage}>
-        <button type="submit">Random Breed Image</button>
-      </form>
+    <div className="flex h-full grow justify-center items-center">
+      <div className="">
+        <Image
+          src={breedImage.message}
+          alt="Dog Image"
+          height={400}
+          width={400}
+        />
+        <form action={handleRandomImage}>
+          <button type="submit" className=" bg-[#90887f] rounded p-2">
+            Random Breed Image
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
