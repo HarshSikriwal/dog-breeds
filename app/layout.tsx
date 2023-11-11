@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import { Suspense } from "react";
+import Loading from "@/Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,15 +16,17 @@ export const revalidate = 0;
 
 export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { breed?: string };
 }) {
   return (
     <html lang="en">
       <body
         className={`${inter.className} w-screen h-screen flex bg-[#ddd0c3]`}
       >
-        <Sidebar />
+        <Sidebar breed={params.breed!} />
         {children}
       </body>
     </html>

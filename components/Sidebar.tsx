@@ -3,14 +3,15 @@ import SearchBar from "./SearchBar";
 import Link from "next/link";
 
 interface SearchProps {
-  searchParams?: { breeds: string };
+  params?: { breed: string };
 }
 
 export const revalidate = 0;
 
-const Sidebar = async ({ searchParams }: SearchProps) => {
+const Sidebar = async ({ breed }: { breed: string }) => {
   const data = await getData();
   const breedsArray = Object.keys(data);
+  console.log(breed);
 
   return (
     <div className="basis-1/5">
@@ -20,7 +21,7 @@ const Sidebar = async ({ searchParams }: SearchProps) => {
           <Link
             href={breed}
             key={breed}
-            className="p-4 border-b-2 border-t-2 border-t-[#fffbee] border-b-[#b2afa6]"
+            className={`p-4 border-b-2 border-t-2 border-t-[#fffbee] border-b-[#b2afa6]`}
           >
             <p>{breed}</p>
           </Link>
