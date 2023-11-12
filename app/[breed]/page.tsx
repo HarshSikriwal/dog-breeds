@@ -29,10 +29,9 @@ export default async function BreedPage({
     <div className="flex h-full w-full justify-center gap-8 p-14 relative">
       <div className="flex h-full w-full relative">
         <Image
-          className=""
           src={breedImage}
           alt="Dog Image"
-          loading="lazy"
+          loading="eager"
           objectFit="contain"
           fill
         />

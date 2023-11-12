@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body
         className={`${inter.className} w-screen h-screen flex bg-[#ddd0c3]`}
       >
-        <Sidebar breed={params.breed!} />
+        <Sidebar />
         {children}
       </body>
     </html>

@@ -1,21 +1,15 @@
 import { getData } from "@/actions/getData";
-import SearchBar from "./SearchBar";
-import Link from "next/link";
 
-interface SearchProps {
-  params?: { breed: string };
-}
+import Link from "next/link";
 
 export const revalidate = 0;
 
-const Sidebar = async ({ breed }: { breed: string }) => {
+const Sidebar = async () => {
   const data = await getData();
   const breedsArray = Object.keys(data);
-  console.log(breed);
 
   return (
     <div className="basis-1/5">
-      {/* <SearchBar /> */}
       <div className="flex flex-col text-lg h-full bg-[#d7d4ca] text-black overflow-auto">
         {breedsArray.map((breed) => (
           <Link
@@ -23,7 +17,7 @@ const Sidebar = async ({ breed }: { breed: string }) => {
             key={breed}
             className={`p-4 border-b-2 border-t-2 border-t-[#fffbee] border-b-[#b2afa6]`}
           >
-            <p>{breed}</p>
+            {breed}
           </Link>
         ))}
       </div>
