@@ -46,28 +46,32 @@ export default async function BreedPage({
   }
 
   return (
-    <div className="flex h-full w-full justify-center gap-8 p-14 relative">
-      <div className="flex h-full w-full">
-        {breedImage && (
-          <div className="relative h-full w-full flex justify-center">
-            <Image
-              src={breedImage[0]}
-              alt="Please Reload"
-              loading="lazy"
-              objectFit="contain"
-              fill
-            />
-            <caption className="z-20 self-end absolute -bottom-10">
-              {captionForImage(breedImage[1])}
-            </caption>
+    <>
+      {breedImage ? (
+        <div className="h-full w-full flex flex-col">
+          <div className="flex grow justify-center gap-8 p-14 relative">
+            <div className="relative flex h-full w-full">
+              <Image
+                src={breedImage[0]}
+                alt="Please Reload"
+                loading="lazy"
+                objectFit="contain"
+                fill
+              />
+            </div>
+            <form className="" action={handleRandomImage}>
+              <button type="submit" className=" bg-[#90887f] rounded p-2">
+                <RefreshCcw />
+              </button>
+            </form>
           </div>
-        )}
-      </div>
-      <form className="" action={handleRandomImage}>
-        <button type="submit" className=" bg-[#90887f] rounded p-2">
-          <RefreshCcw />
-        </button>
-      </form>
-    </div>
+          <p className="z-[2000] text-center w-full italic">
+            {captionForImage(breedImage[1])}
+          </p>
+        </div>
+      ) : (
+        <p>Error In Data Fetching</p>
+      )}
+    </>
   );
 }
