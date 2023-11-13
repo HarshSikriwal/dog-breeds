@@ -1,19 +1,19 @@
 export async function getBreedRandomImages(breed?: string, subbreed?: string) {
-  const apiUrls = subbreed
-    ? [
-        `https://dog.ceo/api/breed/${breed}/${subbreed}/images/random`,
-        `https://dog.ceo/api/breed/${breed}/images/random`,
-        `https://dog.ceo/api/breeds/image/random`,
-      ]
-    : [
-        `https://dog.ceo/api/breed/${breed}/images/random`,
-        `https://dog.ceo/api/breeds/image/random`,
-      ];
+  const apiUrls: { [key: string]: string } = subbreed
+    ? {
+        subbreed: `https://dog.ceo/api/breed/${breed}/${subbreed}/images/random`,
+        breed: `https://dog.ceo/api/breed/${breed}/images/random`,
+        randomDog: `https://dog.ceo/api/breeds/image/random`,
+      }
+    : {
+        breed: `https://dog.ceo/api/breed/${breed}/images/random`,
+        randomDog: `https://dog.ceo/api/breeds/image/random`,
+      };
 
-  for (let api of apiUrls) {
-    console.log(api);
+  for (let key in apiUrls) {
+    console.log(apiUrls[key]);
     try {
-      const response = await fetch(api);
+      const response = await fetch(apiUrls[key]);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -21,11 +21,12 @@ export async function getBreedRandomImages(breed?: string, subbreed?: string) {
       const data = await response.json();
       const dataRes = await fetch(data.message);
       const contentType = dataRes.headers.get("content-type");
-      console.log(contentType);
+
       // Check if the content type indicates an image (you might need to customize this)
       if (contentType && contentType.startsWith("image/")) {
         try {
-          return data.message;
+          const imagePath: string[] = [data.message, key];
+          return imagePath;
         } catch (error) {
           console.error(`Error parsing JSON: ${error}`);
           throw new Error("Invalid JSON format");
