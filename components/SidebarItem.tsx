@@ -5,7 +5,6 @@ import React from "react";
 const SidebarItem = ({ breed }: { breed: string }) => {
   const pathname = usePathname();
   const active = breed === pathname.slice(1);
-  console.log(breed, active);
 
   return (
     <div

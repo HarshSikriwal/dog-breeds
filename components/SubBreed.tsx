@@ -2,6 +2,7 @@ import { getData } from "@/actions/getData";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import React from "react";
+import SubBreedItem from "./SubBreedItem";
 
 const SubBreed = async ({
   breed,
@@ -30,9 +31,11 @@ const SubBreed = async ({
             <form
               key={child}
               action={handleLink}
-              className="bg-[#fff2e0] rounded-md text-center text-2xl py-2 font-bold shadow-md"
+              className=" text-center text-2xl font-bold rounded-md"
             >
-              <Link href={`?subbreed=${child}`}>{child}</Link>
+              <Link href={`?subbreed=${child}`} className="">
+                <SubBreedItem child={child} />
+              </Link>
             </form>
           ))}
         </div>
