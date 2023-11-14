@@ -49,18 +49,23 @@ export default async function BreedPage({
     <>
       {breedImage ? (
         <div className="h-full w-full flex flex-col">
-          <div className="flex grow justify-center gap-8 p-14 relative">
+          <div className="flex grow justify-center gap-8 p-14 relative ">
             <div className="relative flex h-full w-full">
               <Image
+                className="shadow-2xl"
                 src={breedImage[0]}
                 alt="Please Reload"
                 loading="lazy"
                 objectFit="contain"
                 fill
+                style={{ borderRadius: "2%" }}
               />
             </div>
             <form className="" action={handleRandomImage}>
-              <button type="submit" className=" bg-[#90887f] rounded p-2">
+              <button
+                type="submit"
+                className=" bg-[#90887f] rounded p-2 shadow-2xl"
+              >
                 <RefreshCcw />
               </button>
             </form>
