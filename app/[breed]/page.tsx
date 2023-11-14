@@ -19,7 +19,7 @@ export default async function BreedPage({
     searchParams?.subbreed
   );
   //   console.log(params.breed, searchParams?.subbreed);
-  console.log(searchParams?.subbreed);
+
   const handleRandomImage = async () => {
     "use server";
     revalidatePath(`/${params.breed}`, "page");
