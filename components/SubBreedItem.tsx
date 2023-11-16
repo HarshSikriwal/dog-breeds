@@ -1,10 +1,8 @@
 "use client";
-import { useParams, useSearchParams } from "next/navigation";
-import React from "react";
+import { useSearchParams } from "next/navigation";
 
 const SubBreedItem = ({ child }: { child: string }) => {
   const query = useSearchParams().get("subbreed");
-  console.log(child, query);
 
   return (
     <div

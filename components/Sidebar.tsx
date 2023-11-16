@@ -3,8 +3,6 @@ import { getData } from "@/actions/getData";
 import Link from "next/link";
 import SidebarItem from "./SidebarItem";
 
-export const revalidate = 0;
-
 const Sidebar = async () => {
   const data = await getData();
   const breedsArray = Object.keys(data);

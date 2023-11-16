@@ -2,8 +2,6 @@ import { getBreedRandomImages } from "../getBreedDetails";
 import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { RefreshCcw } from "lucide-react";
-import { Suspense } from "react";
-import Loading from "@/Loading";
 
 export const revalidate = 0;
 
