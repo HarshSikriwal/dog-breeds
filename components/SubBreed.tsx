@@ -4,13 +4,7 @@ import Link from "next/link";
 import React from "react";
 import SubBreedItem from "./SubBreedItem";
 
-const SubBreed = async ({
-  breed,
-  searchParams,
-}: {
-  breed: string;
-  searchParams?: { subbreed: string };
-}) => {
+const SubBreed = async ({ breed }: { breed: string }) => {
   const breeds: { [key: string]: string[] | [] } = await getData();
   const subBreed = breeds[breed];
 
