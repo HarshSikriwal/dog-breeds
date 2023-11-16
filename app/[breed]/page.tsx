@@ -16,7 +16,6 @@ export default async function BreedPage({
     params.breed,
     searchParams?.subbreed
   );
-  //   console.log(params.breed, searchParams?.subbreed);
 
   const handleRandomImage = async () => {
     "use server";

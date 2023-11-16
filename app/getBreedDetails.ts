@@ -11,7 +11,6 @@ export async function getBreedRandomImages(breed?: string, subbreed?: string) {
       };
 
   for (let key in apiUrls) {
-    console.log(apiUrls[key]);
     try {
       const response = await fetch(apiUrls[key]);
       if (!response.ok) {
