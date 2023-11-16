@@ -3,6 +3,8 @@ import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { RefreshCcw } from "lucide-react";
 
+export const revalidate = 0;
+
 export default async function BreedPage({
   params,
   searchParams,
