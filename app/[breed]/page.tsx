@@ -1,4 +1,4 @@
-import { getBreedRandomImages } from "../getBreedDetails";
+import { getBreedRandomImages } from "../../actions/getBreedDetails";
 import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { RefreshCcw } from "lucide-react";
